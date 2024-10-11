@@ -132,3 +132,74 @@
    ```bash
    git push origin nombre-de-la-rama-secundaria
    ```
+
+---
+
+## Crear 2 PR distintas usando 2 ramas de desarrollo
+
+1. **Crear la primera rama de desarrollo:**
+
+   ```bash
+   git branch nombre-dev1
+   ```
+
+   > Cambia `nombre-dev1` por tu nombre y el propósito de la rama (ej., `pauR-featureA`).
+
+2. **Cambiar a la primera rama de desarrollo:**
+
+   ```bash
+   git switch nombre-dev1
+   ```
+
+3. **Realizar cambios en la primera rama.**
+
+4. **Crear un commit para la primera rama:**
+
+   ```bash
+   git commit -m "Descripción de cambios en nombre-dev1"
+   ```
+
+5. **Subir la primera rama al repositorio remoto:**
+
+   ```bash
+   git push -u origin nombre-dev1
+   ```
+
+6. **Crear una PR para la primera rama en GitHub:**
+
+   - Sigue los pasos descritos en la sección “Crear la PR”.
+   - Asegúrate de asignar revisores y añadir una descripción clara para la primera PR.
+
+7. **Crear la segunda rama de desarrollo desde `main`:**
+
+   ```bash
+   git checkout main
+   git branch nombre-dev2
+   ```
+
+   > Cambia `nombre-dev2` por tu nombre y el propósito de la rama (ej., `pauR-featureB`).
+
+8. **Cambiar a la segunda rama de desarrollo:**
+
+   ```bash
+   git switch nombre-dev2
+   ```
+
+9. **Realizar cambios en la segunda rama.**
+
+10. **Crear un commit para la segunda rama:**
+
+    ```bash
+    git commit -m "Descripción de cambios en nombre-dev2"
+    ```
+
+11. **Subir la segunda rama al repositorio remoto:**
+
+    ```bash
+    git push -u origin nombre-dev2
+    ```
+
+12. **Crear una PR para la segunda rama en GitHub:**
+
+    - Sigue nuevamente los pasos para abrir una PR.
+    - Añade revisores y asegúrate de una descripción que identifique claramente los cambios de la segunda PR.

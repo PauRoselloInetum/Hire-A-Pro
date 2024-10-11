@@ -1,9 +1,11 @@
 # HIRE A PRO
 
-## Frontend
+## Recursos de Desarrollo
 
-- [Documentación Angular](/Angular/README.md)
+### Frontend
 
-## GIT
+- [📘 Guía de Angular](./Angular/README.md) - Explora la documentación esencial para trabajar con Angular en tus proyectos.
 
-- [Documentación GIT](/docs/git/README.md)
+### Control de Versiones
+
+- [🔧 Documentación de Git](./docs/git/README.md) - Revisa las mejores prácticas y comandos fundamentales para gestionar versiones con Git.

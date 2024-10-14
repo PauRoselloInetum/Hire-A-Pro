@@ -7,6 +7,8 @@ import { RegisterComponent } from './register/register.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerificationComponent } from './verification/verification.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MapScreenComponent } from './map-screen-component/map-screen-component.component';
+
 
 @Component({
   selector: 'app-root',
@@ -18,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     ForgotPasswordComponent,
     HttpClientModule,
+    MapScreenComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

@@ -8,6 +8,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { VerificationComponent } from './verification/verification.component';
 import { ComponentsComponent } from './components/components.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { MapScreenComponent } from './map-screen-component/map-screen-component.component';
 
 export const routes: Routes = [
   { path: '', component: LandingPageComponent , pathMatch: 'full' },
@@ -16,6 +17,7 @@ export const routes: Routes = [
   { path: 'loading', component: LoadingComponent , pathMatch: 'full' },
   { path: 'login/forgot-password', component: ForgotPasswordComponent , pathMatch: 'full' },
   { path: 'login/verify', component: VerificationComponent , pathMatch: 'full' },
+  { path: 'pop', component:MapScreenComponent , pathMatch: 'full' },
 
   { path: 'components', component: ComponentsComponent , pathMatch: 'full' }, //FOR TESTING
 

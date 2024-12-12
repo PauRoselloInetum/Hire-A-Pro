@@ -1,0 +1,89 @@
+@keyframes FadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+* {
+  outline: none;
+  transition: all 0.4s ease-in-out;
+}
+
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.child {
+  padding: 40px;
+  border-radius: 12px;
+  min-width: 360px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  animation: FadeIn 0.5s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+p {
+  font-size: 16px;
+  color: inherit;
+}
+
+@media (prefers-color-scheme: light) {
+  .parent {
+    background-color: #e3f2fd;
+    color: #2c3e50;
+  }
+
+  .child {
+    background: linear-gradient(135deg, #ffffff, #bbdefbde);
+    box-shadow: 0px 10px 30px #90caf9;
+  }
+  .spinner{
+    border: 5px solid #c0c0c096;
+    border-top-color: #3498db;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .parent {
+    background-color: #1b1f24;
+    color: #dcdcdc;
+  }
+
+  .child {
+    background: linear-gradient(135deg, #2c3e50, #1c2536);
+    box-shadow: 0px 10px 30px #000000;
+  }
+  .spinner{
+    border: 5px solid #7a7a7a96;
+    border-top-color: #3498db;
+  }
+}

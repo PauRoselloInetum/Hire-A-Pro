@@ -9,15 +9,10 @@ using Google.Cloud.Firestore;
 var builder = WebApplication.CreateBuilder(args);
 IdentityModelEventSource.ShowPII = true;
 
-builder.Services.AddSingleton<MongoDbService>();
+builder.Services.AddSingleton<MongoDBService>();
 
-string path = new HireAProBackend.Models.Path().path; // Asegúrate de que Path esté accesible
-Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
-
-builder.Services.AddSingleton<FirestoreDb>(provider =>
-{
-    return FirestoreDb.Create("hire-a-pro-database");
-});
+//string path = new HireAProBackend.Models.Path().path; // Asegúrate de que Path esté accesible
+//Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
 
 // Agregar servicios al contenedor
 builder.Services.AddControllers();
@@ -60,12 +55,12 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddTransient<IHmacShaHash,HmacShaHash>();
 builder.Services.AddTransient<IShaHash, ShaHash>();
 builder.Services.AddTransient<IGenTokenReset, GenTokenReset>();
-builder.Services.AddTransient<ISaveToken, SaveToken>();
+//builder.Services.AddTransient<ISaveToken, SaveToken>();
 
 
 //Configuracion servicio de correo
 builder.Services.AddScoped<IEmailService, EmailService>();
-builder.Services.AddHostedService<DelUsersService>();
+//builder.Services.AddHostedService<DelUsersService>();
 
 
 var app = builder.Build();

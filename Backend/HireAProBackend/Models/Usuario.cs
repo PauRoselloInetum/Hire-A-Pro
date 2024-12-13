@@ -33,8 +33,16 @@ namespace HireAProBackend.Models
         [FirestoreProperty("province")]  // Nombre exacto del campo en Firestore
         public string Province { get; set; }
 
+        public string Type { get; set; }
         public Usuario() { }
 
-
+        public Usuario(string username, string email, string password, string type )
+        {
+            Username = username;
+            Email = email;
+            Password = password;
+            Verified = false;
+            Type = type;
+        }
     }
 }

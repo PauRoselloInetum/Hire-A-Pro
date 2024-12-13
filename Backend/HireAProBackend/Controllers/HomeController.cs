@@ -15,22 +15,22 @@ namespace HireAProBackend.Controllers
     [ApiController]
     public class HomeController : Controller
     {
-        private readonly MongoDbService mongoDbService;
+        private readonly MongoDBService MongoDBService;
         public IConfiguration _configuracion;
         private readonly IEmailService _emailService;
         private readonly IHmacShaHash _hmacShaHash;
         private readonly IShaHash _shaHash;
         private readonly IGenTokenReset _genTokenReset;
-        private readonly ISaveToken _saveToken;
-        public HomeController(MongoDbService mongoDbService, IConfiguration configuracion, IEmailService emailService, IHmacShaHash hmacShaHash, IShaHash shaHash, IGenTokenReset genTokenReset, ISaveToken saveToken)
+       
+        public HomeController(MongoDBService MongoDBService, IConfiguration configuracion, IEmailService emailService, IHmacShaHash hmacShaHash, IShaHash shaHash, IGenTokenReset genTokenReset)
         {
-            this.mongoDbService = mongoDbService;
+            this.MongoDBService = MongoDBService;
             _configuracion = configuracion;
             _emailService = emailService;
             _hmacShaHash = hmacShaHash;
             _shaHash = shaHash;
             _genTokenReset = genTokenReset;
-            _saveToken = saveToken;
+           
         }
 
 
@@ -53,7 +53,7 @@ namespace HireAProBackend.Controllers
             var cancellationTokenSource = new CancellationTokenSource();
 
             // instancia de la colección de usuarios para hacerle consultas proximamente
-            var coleccionUsers = mongoDbService._database.GetCollection<Usuario>("usuarios");
+            var coleccionUsers = MongoDBService._database.GetCollection<Usuario>("usuarios");
 
             // buscará el email de las isntancias de usuarios (p.Email) usando como parámetro para comparar el email (email)
             // que viene como parámetro
@@ -63,7 +63,7 @@ namespace HireAProBackend.Controllers
             var count = coleccionUsers.CountDocuments(filtro);
 
             if (count == 1){
-                return Unauthorized("Correo ya en uso. Introduce ortro");
+                return Unauthorized("Correo ya en uso.");
             }
             else{
                 // mongodb necesita objetos instanciados para añadirlos en la base de datos
@@ -82,7 +82,7 @@ namespace HireAProBackend.Controllers
             string password = _shaHash.ComputeSha256Hash(loginRequest.Password);
 
             // instancia de la colección de usuarios para hacerle consultas proximamente
-            var coleccionUsers = mongoDbService._database.GetCollection<Usuario>("usuarios");
+            var coleccionUsers = MongoDBService._database.GetCollection<Usuario>("usuarios");
 
             // buscar primero por correo
             var buscarPorMail = Builders<Usuario>.Filter.Or(
